@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>grid</title>
+</head>
+<style type="text/css">
+	.grid{
+		display: grid;
+		grid-template-areas:
+		  'title title title nav1 nav2 nav3'
+		  'post post post post post sidebar '
+		  'postmeta main main main main sidebar'
+		  'postmeta main main main main ads'
+		  'postmeta main main main main ads'
+		  'postmeta image image image image ads'
+		  'postmeta image image image image other'
+		  'postmeta image image image image other'
+		  'foot foot foot foot foot foot';
+		gap: 5px;
+		width: 70%;
+	}
+	.title {grid-area:title;background-color:yellow;height: 50px;}
+	.nav1 {grid-area:nav1;background-color:pink;}
+	.nav2 {grid-area:nav2;background-color:pink;}
+	.nav3 {grid-area:nav3;background-color:pink;}
+	.post {grid-area:post;background-color:lightblue; height: 50px;}
+	.sidebar {grid-area:sidebar;background-color:orange;}
+	.postmeta {grid-area:postmeta;background-color:green; height: 300px}
+	.main {grid-area:main;background-color:gray;}
+	.image {grid-area:image;background-color:yellow;}
+	.ads {grid-area:ads;background-color:green;}
+	.other {grid-area:other;background-color:purple;}
+	.foot {grid-area:foot;background-color:gray; height: 70px}
+</style>
+<body>
+	<div class="grid">
+		<div class="title">title</div>
+		<div class="nav1">nav1</div>
+		<div class="nav2">nav2</div>
+		<div class="nav3">nav3</div>
+		<div class="post">post</div>
+		<div class="sidebar">sidebar</div>
+		<div class="ads">ads</div>
+		<div class="other">other</div>
+		<div class="postmeta">postmeta</div>
+		<div class="main">main</div>
+		<div class="image">image</div>
+		<div class="foot">foot</div>
+
+
+	</div>
+
+</body>
+</html>

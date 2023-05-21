@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>slider color</title>
+</head>
+<style type="text/css">
+	#color{
+		width: 100px;
+		height: 100px;
+		background-color: rgb(0, 0, 0);
+	}
+</style>
+<body>
+	<div id="color"></div>
+	<input type="range" id="red" min="0" value="0"  max="255" name="">
+	<input type="range" id="green" min="0" value="0"  max="255" name="">
+	<input type="range" id="blue" min="0" value="0"  max="255" name="">
+
+	<script>
+		const red = document.getElementById('red');
+		const green = document.getElementById('green');
+		const blue = document.getElementById('blue');
+		const color = document.getElementById('color');
+		function changecolor()
+		{
+			color.style.backgroundColor = "rgb("+red.value+","+green.value+","+blue.value+")";
+		}
+		red.addEventListener('input',changecolor);
+		green.addEventListener('input',changecolor);
+		blue.addEventListener('input',changecolor);
+		changecolor();
+	</script>
+</body>
+</html>

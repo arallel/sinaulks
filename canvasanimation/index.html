@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bola</title>
+    <style>
+      canvas {
+        background-color: green;
+        align-items: center;
+        justify-content: center;
+        left: 40%;
+        top: 35%;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas height="320" width="400" id="canvas"></canvas>
+    <script>
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+
+      const bola = {
+        y: canvas.height / 2,
+        x: 15,
+        radius: 10,
+        color: "white",
+      };
+      let collide = false;
+      function drawbola() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.beginPath();
+        ctx.arc(bola.x, bola.y, bola.radius, 0, 2 * Math.PI);
+        ctx.fillStyle = bola.color;
+        ctx.fill();
+        if (collide) {
+          if (bola.x < 0) collide = false;
+          bola.x -= 2;
+        } else {
+          if (bola.x > canvas.width + bola.radius) collide = true;
+          bola.x += 2;
+        }
+      }
+      setInterval(drawbola, 10);
+    </script>
+  </body>
+</html>

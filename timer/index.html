@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timer</title>
+</head>
+<body>
+    <h1 id="timer">000:00</h1>
+    <div>
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <button id="reset">Reset</button>
+    </div>
+    <script>
+        const timer = document.getElementById('timer');
+        const btnstart = document.getElementById('start');
+        const btnstop = document.getElementById('stop');
+        const btnreset = document.getElementById('reset');
+        let milisecond = 0;
+        let second = 0;
+        let interval;
+
+        function startTimer() {
+            interval = setInterval(() => {
+                milisecond++;
+                if (milisecond === 100) {
+                    second++;
+                    milisecond = 0;
+                }
+                  if (second === 999 && milisecond === 59) {
+                    milisecond = 59;
+                    second = 999;
+                    clearInterval(interval);
+                }
+                updateTimer();
+            }, 10);
+        }
+        function stopTimer() {
+            clearInterval(interval);
+        }
+
+        function resetTimer() {
+            milisecond = 0;
+            second = 0;
+            updateTimer();
+            stopTimer();
+        }
+
+        function updateTimer() {
+            timer.innerHTML = padNumber(second, 3) + ":" + padNumber(milisecond, 2);
+        }
+
+        function padNumber(num, length) {
+            return num.toString().padStart(length, "0");
+        }
+        btnstart.addEventListener('click', startTimer);
+        btnstop.addEventListener('click', stopTimer);
+        btnreset.addEventListener('click', resetTimer);
+    </script>
+</body>
+</html>

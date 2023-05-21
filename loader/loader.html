@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>spiner</title>
+    <style>
+      .loader {
+        --dim: 9rem;
+        width: var(--dim);
+        height: var(--dim);
+        animation: spin 2s linear infinite;
+        position: absolute;
+        top: 45%;
+        left: 45%;
+      }
+      .loader .circle {
+        --dim: 4rem;
+        width: var(--dim);
+        height: var(--dim);
+        background-color: var(--color);
+        border-radius: 100%;
+        position: absolute;
+      }
+      .loader .circle:nth-child(1) {
+        top: 0;
+      }
+
+      .loader .circle:nth-child(2) {
+        top: 0;
+        right: 0;
+      }
+
+      .loader .circle:nth-child(3) {
+        bottom: 0;
+        left: 0;
+      }
+
+      .loader .circle:nth-child(4) {
+        bottom: 0;
+        right: 0;
+      }
+      @keyframes spin {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loader">
+      <div class="circle" style="--color: #193b48"></div>
+      <div class="circle" style="--color: #19a68c"></div>
+      <div class="circle" style="--color: #f63d3a"></div>
+      <div class="circle" style="--color: #fda543"></div>
+    </div>
+  </body>
+</html>
